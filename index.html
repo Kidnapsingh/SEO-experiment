@@ -1,25 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head> <meta name="google-site-verification" content="4lOIGfZZq4Q0EqDmVRJh8FHNN9yaxGUK-i20Vos-N7M" />
-  </head>
 <head>
   <meta charset="UTF-8">
-  <title>Hello from GitHub Pages</title>
+  <title>My SEO Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      background-color: #f4f4f4;
       font-family: Arial, sans-serif;
       text-align: center;
-      padding-top: 100px;
+      padding: 40px;
+      background-color: #f5f5f5;
     }
     h1 {
       color: #333;
     }
+    button {
+      padding: 12px 20px;
+      font-size: 16px;
+      margin: 10px;
+      border: none;
+      border-radius: 6px;
+      background-color: #007BFF;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .summary-box {
+      margin-top: 30px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    a {
+      display: inline-block;
+      margin-top: 15px;
+      color: #007BFF;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
-  <h1>Hello! </h1>
-  <p>This is my website to test SEO analytics.</p>
+
+  <h1>📊 SEO Weekly Summary</h1>
+
+  <button onclick="showSummary()">View SEO Insights</button>
+  <button onclick="redirectRandom()">Read a Random Article</button>
+
+  <div id="seoSummary" class="summary-box" style="display:none;">
+    <h3>SEO Performance Summary</h3>
+    <p><em>This summary is generated using ChatGPT and Google Search Console data.</em></p>
+    <p id="summaryText">
+      Loading summary...
+    </p>
+  </div>
+
+  <script>
+    function showSummary() {
+      document.getElementById("seoSummary").style.display = "block";
+      document.getElementById("summaryText").innerText = `
+      ✅ Top performing query: "github pages seo" (CTR: 8.0%, Position: 5.4)
+      ⚠️ Weak query: "seo for beginners" (Low clicks + low position)
+      💡 Suggestion: Improve internal linking and add keyword-rich headers.
+      `;
+    }
+
+    function redirectRandom() {
+      const articles = [
+        "https://moz.com/blog/seo-best-practices",
+        "https://ahrefs.com/blog/seo-basics/",
+        "https://www.searchenginejournal.com/seo-guide/",
+        "https://backlinko.com/seo-this-year",
+        "https://yoast.com/what-is-seo/"
+      ];
+      const randomIndex = Math.floor(Math.random() * articles.length);
+      window.open(articles[randomIndex], "_blank");
+    }
+  </script>
+
 </body>
 </html>
